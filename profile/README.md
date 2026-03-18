@@ -69,14 +69,11 @@ selection and planning logic to evolve independently on the client side.
 
 ## Repositories
 
-- **[Aptitude/.github](https://github.com/Aptitude/.github)** - Organization
-  profile, shared documentation, architecture references, and admin material.
-- **[Aptitude/aptitude-server](https://github.com/Aptitude/aptitude-server)** -
+- **[aptitude-stack/docs](https://github.com/aptitude-stack/docs)** - Organization shared documentation and architecture references.
+- **[aptitude-stack/server](https://github.com/aptitude-stack/server)** -
   Registry backend and public HTTP API.
-- **[Aptitude/aptitude-resolver](https://github.com/Aptitude/aptitude-resolver)** -
+- **[aptitude-stack/client](https://github.com/aptitude-stack/client)** -
   Agent-facing resolver for discovery, lock generation, and execution planning.
-- **[Aptitude/aptitude-publisher](https://github.com/Aptitude/aptitude-publisher)** -
-  Publishing and release surface for authors and CI.
 
 ## Project Docs
 
