@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Start Here
+    url: https://github.com/aptitude-stack/.github/blob/main/START-HERE.md
+    about: Start with the Aptitude overview and repository map.
+  - name: Security Policy
+    url: https://github.com/aptitude-stack/.github/blob/main/SECURITY.md
+    about: Report security issues privately instead of opening a public issue.
