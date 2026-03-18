@@ -32,16 +32,17 @@ publisher, registry, and resolver surfaces.
 - `Aptitude/.github` as the organization-level documentation and admin hub
 
 ```mermaid
-flowchart LR
-    Author["Skill Author / CI"] --> Publisher["aptitude-publisher"]
-    User["Developer / Agent / MCP Host"] --> Resolver["aptitude-resolver"]
-    Publisher --> Server["aptitude-server"]
-    Resolver --> Server
-    Server --> DB["PostgreSQL"]
-    Web["Future Web App"] --> Server
-    Docs["Aptitude/.github"] --- Publisher
-    Docs --- Resolver
-    Docs --- Server
+flowchart TD
+    Author["Skill Author / CI"] --> Publisher["Publisher<br/>authoring + release"]
+
+    Registry --> Web["Web App<br/>catalog + operations"]
+    Resolver["Resolver<br/>search + solve + planning"] --> User["Developer / Agent / MCP Host"]
+
+    Publisher --> Registry["Registry<br/>publish + discovery + fetch + governance"]
+    Web["Web App<br/>catalog + operations"] --> Publisher
+
+    Registry --> Resolver
+    Registry <--> DB["PostgreSQL"]
 ```
 
 ## Architecture
