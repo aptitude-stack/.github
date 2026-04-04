@@ -1,0 +1,6 @@
+*
+.*
+!*/
+!*.md
+!.gitignore
+.DS_Store
