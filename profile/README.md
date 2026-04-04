@@ -18,12 +18,38 @@ registry facts, and client-side decision making. The platform is CLI-first and
 MCP-first, with deterministic execution centered on immutable versions and
 resolver-generated lockfiles.
 
+## Pain Points
+
+The current AI skill ecosystem lacks the structure needed to discover, trust,
+govern, and compose skills reliably at scale.
+
+- Accessibility: skills are scattered across repos, docs, and prompts, and discovery often falls back to GitHub crawling or `git clone`-style installation.
+- Quality and security: strict publication pipelines, validation, benchmarking, provenance, and trust signals are inconsistent or missing.
+- Governance and control: organizations lack closed, policy-controlled registries, configurable agent guardrails, and lifecycle enforcement.
+- Dependency management and atomicity: skills are rarely packaged as atomic, reusable units with explicit dependency relationships, resources, and shared lockfiles.
+
+These gaps lead to low reuse, brittle agent behavior, unsafe capability usage,
+and non-deterministic execution.
+
+## The Aptitude Solution
+
+Aptitude turns skills into governed, versioned assets that can be safely
+discovered, resolved, and reused through a three-layer model:
+
+- Publish, govern, store: skills pass through a strict publish pipeline and are packaged as immutable, versioned, lifecycle-governed artifacts.
+- Discover, retrieve: consumers query indexed metadata and fetch exact versions from a high-performance registry instead of relying on scattered Git repositories or source installs.
+- Decide, resolve, execute: the resolver treats skills as atomic building blocks, expands dependencies, applies configurable governance, exposes an MCP-friendly interface, and generates deterministic locks and execution plans.
+
+In practice, this turns loose capabilities into governed assets, prompt chaos
+into structured infrastructure, and trial-and-error usage into deterministic
+execution.
+
 ## What Aptitude Includes
 
 - `aptitude-publisher` for authoring workflows, packaging, validation, and CI-driven publication
 - `Aptitude Registry` for immutable storage, indexed discovery, exact fetch, lifecycle state, and audit
 - `aptitude-resolver` for query interpretation, candidate reranking, dependency solving, governance checks, lock generation, and local materialization
-- PostgreSQL as the canonical store for metadata, content digests, lifecycle state, and audit records
+- PostgreSQL as the canonical store for structured metadata, enriched content artifacts, lifecycle state, and audit records
 - A documentation and operations layer that defines architecture, contracts, contributor workflows, and runbooks
 
 ```mermaid
@@ -59,10 +85,27 @@ This model keeps storage and search stable while allowing resolver-side ranking 
 ## Why This Model
 
 - Skills become reusable, versioned assets instead of ad hoc prompt glue.
+- Skills are published into the registry as structured, enriched artifacts rather than installed from scattered GitHub repositories.
+- Small skill payloads, typically within an `8 MB` envelope, make high-performance database-backed storage practical, so Git is not the installation unit.
+- Skills can be modeled as atomic building blocks with dependencies, metadata, and resources that compose into reusable bundles.
 - Indexed discovery remains fast because candidate retrieval stays close to canonical metadata.
 - Runtime selection remains context-aware because final choice and graph solving happen in the resolver.
-- Reproducibility comes from immutable published versions, checksum-backed fetches, and client-side locks.
+- Reproducibility comes from immutable published versions, checksum-backed fetches, client-side locks, and shareable lockfiles for team alignment.
 - Governance can separate what exists, what is visible, and what is allowed at execution time.
+- Configurable policy controls let platform teams and Aptitude users guardrail agent behavior while keeping the interface MCP-friendly.
+
+## Competitive Landscape
+
+The market has tools for skill sharing, runtime capability use, and skill
+research, but most solutions only solve part of the lifecycle.
+
+- Skills marketplaces and installer-style tools help distribute skills, but usually depend on weaker governance and less reproducible installation models.
+- Runtime frameworks and model tool-calling APIs help agents use capabilities, but they are not structured registry and lifecycle systems.
+- Research systems explore skill creation and evaluation, but they are not enterprise-oriented control planes.
+
+Aptitude is different because it combines a closed publication model, structured
+artifact storage, atomic dependency-aware skill composition, shareable
+lockfiles, and configurable policy enforcement in one agent-friendly platform.
 
 ## How To Run
 
@@ -100,6 +143,7 @@ uvx aptitude-resolver@latest sync
 ## Documentation Map
 
 - [Product Overview](./project%20overview.md)
+- [Competitive Landscape](./docs/project/competitive-landscape.md)
 - [High-Level Design](./high-level-design.md)
 - [Registry Docs](./docs/registry/README.md)
 - [Registry Architecture Overview](./docs/registry/architecture/system-overview.md)
