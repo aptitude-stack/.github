@@ -142,12 +142,13 @@ uvx aptitude-resolver@latest sync
 
 ## Documentation Map - 
 
-- [Product Overview](https://docs.com/aptitude-stack/docs/blob/main/project-overview.md)
-- [Competitive Landscape](https://docs.com/aptitude-stack/docs/blob/main/docs/project/competitive-landscape.md)
-- [High-Level Design](https://docs.com/aptitude-stack/docs/blob/main/high-level-design.md)
-- [Registry Docs](https://docs.com/aptitude-stack/docs/blob/main/docs/registry/README.md)
-- [Registry Architecture Overview](https://docs.com/aptitude-stack/docs/blob/main/docs/registry/architecture/system-overview.md)
-- [Registry API Contract](https://docs.com/aptitude-stack/docs/blob/main/docs/registry/reference/api-contract.md)
-- [Resolver Docs](https://docs.com/aptitude-stack/docs/blob/main/docs/resolver/README.md)
-- [Resolver Architecture Overview](https://docs.com/aptitude-stack/docs/blob/main/docs/resolver/architecture/system-overview.md)
-- [Registry/Resolver Boundary](https://docs.com/aptitude-stack/docs/blob/main/docs/registry/architecture/server-resolver-boundary.md)
+- [Product Overview](https://github.com/aptitude-stack/docs/blob/main/project-overview.md)
+- [Competitive Landscape](https://github.com/aptitude-stack/docs/blob/main/docs/project/competitive-landscape.md)
+- [High-Level Design](https://github.com/aptitude-stack/docs/blob/main/high-level-design.md)
+- [Registry Docs](https://github.com/aptitude-stack/docs/blob/main/docs/registry/README.md)
+- [Registry Architecture Overview](https://github.com/aptitude-stack/docs/blob/main/docs/registry/architecture/system-overview.md)
+- [Registry API Contract](https://github.com/aptitude-stack/docs/blob/main/docs/registry/reference/api-contract.md)
+- [Resolver Docs](https://github.com/aptitude-stack/docs/blob/main/docs/resolver/README.md)
+- [Resolver Architecture Overview](https://github.com/aptitude-stack/docs/blob/main/docs/resolver/architecture/system-overview.md)
+- [Registry/Resolver Boundary](https://github.com/aptitude-stack/docs/blob/main/docs/registry/architecture/server-resolver-boundary.md)
+
