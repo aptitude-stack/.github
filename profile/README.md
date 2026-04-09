@@ -66,16 +66,6 @@ execution.
 - A documentation and operations layer that defines architecture, contracts,
   contributor workflows, and runbooks
 
-```mermaid
-flowchart LR
-    Author["Skill Author / CI"] --> Publisher["Aptitude Publisher"]
-    User["Developer / Agent / MCP Host"] --> Resolver["Aptitude Resolver"]
-    Publisher --> Registry["Aptitude Registry"]
-    Resolver --> Registry
-    Registry --> DB["PostgreSQL"]
-    Web["Future Web App"] --> Registry
-```
-
 ## System Model
 
 Aptitude is intentionally split by ownership:
@@ -107,6 +97,16 @@ makes the final decision about what to install and how to execute it.
 
 This model keeps storage and search stable while allowing resolver-side ranking
 and planning logic to evolve without changing registry truth.
+
+```mermaid
+flowchart LR
+    Author["Skill Author / CI"] --> Publisher["Aptitude Publisher"]
+    User["Developer / Agent / MCP Host"] --> Resolver["Aptitude Resolver"]
+    Publisher --> Registry["Aptitude Registry"]
+    Resolver --> Registry
+    Registry --> DB["PostgreSQL"]
+    Web["Future Web App"] --> Registry
+```
 
 ## Why This Model
 
