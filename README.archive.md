@@ -143,75 +143,30 @@ Aptitude is different because it combines a closed publication model, structured
 artifact storage, atomic dependency-aware skill composition, shareable
 lockfiles, and configurable policy enforcement in one agent-friendly platform.
 
-## Installation
+## How To Run
 
-Install with `pip` or `uv`:
-
-```bash
-pip install aptitude-resolver
-# or
-uv add aptitude-resolver
-```
-
-Run without installing via `uvx`:
+Use `uvx` to run the resolver without a manual install:
 
 ```bash
 uvx aptitude-resolver@latest --help
 ```
 
-## Usage
-
-Start the interactive install-first CLI:
+Start the install-first CLI entrypoint:
 
 ```bash
-aptitude-resolver
-# or without a permanent install:
 uvx aptitude-resolver@latest
 ```
 
-Install skills from a free-text query:
+Install from a free-text query:
 
 ```bash
-aptitude-resolver install "Postman Primary Skill"
+uvx aptitude-resolver@latest install "Postman Primary Skill"
 ```
 
-Install a specific version:
+Replay an existing lockfile:
 
 ```bash
-aptitude-resolver install "Postman Primary Skill" --version 1.2.0
-```
-
-Replay an existing lockfile for deterministic execution:
-
-```bash
-aptitude-resolver sync --lock aptitude.lock.json
-```
-
-List installed skills:
-
-```bash
-aptitude-resolver list
-```
-
-## MCP Integration
-
-Aptitude exposes an MCP server so any MCP-compatible host (Claude Desktop, Cursor, etc.) can resolve and install skills directly:
-
-```bash
-aptitude-resolver mcp
-```
-
-Add to your MCP host config (e.g. `claude_desktop_config.json`):
-
-```json
-{
-  "mcpServers": {
-    "aptitude": {
-      "command": "uvx",
-      "args": ["aptitude-resolver@latest", "mcp"]
-    }
-  }
-}
+uvx aptitude-resolver@latest sync --lock aptitude.lock.json
 ```
 
 ## Repositories
